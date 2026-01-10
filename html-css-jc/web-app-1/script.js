@@ -3,13 +3,21 @@ function dispMessage() {
 
     let email = document.getElementById("txtEmail").value;
     let password = document.getElementById("txtPassword").value
-    
+    let found = users.find(
+        (element)=>element.email===email && element.password===password
+    );
+    if(found){
+        lblMessage.innerHTML="welcome";
 
+    }else{
+        lblMessage.innerHTML="Access Denied";
+    }
 }
 
 function showLoginForm(){
     let str = `
     <h3>Login Form</h3>
+
       <p><label id="lblMessage"></label></p>
       <p><input type="text" id="txtEmail" /></p>
       <p><input type="password" id="txtPassword" /></p>
